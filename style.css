@@ -199,6 +199,9 @@ canvas{
   height:100%;
   cursor:grab;
 }
+canvas:active{
+  cursor:grabbing;
+}
 .model1{
   height:500px;
   margin-top:50px;
