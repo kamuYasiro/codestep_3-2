@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3DCG WORLD</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="three.js"></script>
+  <script src="OrbitControls.js"></script>
+  <script src="GLTFLoader.js"></script>
+  <script src="model1.js"></script>
+  <script src="model2.js"></script>
+  <script src="model3.js"></script>
+  <script src="model4.js"></script>
+  <script src="model5.js"></script>
+  <script src="model6.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <div class="left">
+        <a href="">3DCG World</a>
+      </div>
+      <div class="right humberger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="nav-active">
+      <ul>
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#info">INFORMATION</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#access">DESCRIPTION</a></li>
+        <li><a href="#contact">OTHER</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="fv" id="top">
+    <div class="img-wrapper">
+      <img src="廊下-昼.png" class="img-left"><img src="廊下-夕.png" class="img-center"><img src="廊下-夜.png" class="img-right">
+    </div>
+    <div class="scrollicon" id="scrollicon">
+      <span class="txt">Scroll</span>
+    </div>
+  </section>
+
+  <section class="main">
+    <h1 class="js_fade">Hello 3DCG World!</h1>
+
+    <div class="ly_general info js_fade" id="info">
+      <h2>INFORMATION</h2>
+      <p>I'll show you some assets I've made.</p>
+      <h3>in Blender</h3>
+      <p class="jp">Blenderで作ったいくつかのCGモデルを展示しています。<br>
+      出力には、CGモデルをWeb上に表示するJavaScriptのフレームワークを使用しております。<br><span>まだまだ勉強中のためテクスチャ描画の仕方がわからず、テクスチャ未使用のものをチョイスしました。</span></p>
+      
+    </div>
+
+    <div class="ly_general gallery" id="gallery">
+      <h2 class="js_fade">GALLERY</h2><br>
+      <div class="model1 js_fade delay"><canvas id="canvas1"></canvas>stand light</div>
+      <div class="model2 js_fade delay"><canvas id="canvas2"></canvas>curtain</div>
+      <div class="model3 js_fade delay"><canvas id="canvas3"></canvas>coffee cup</div>
+      <div class="model4 js_fade delay"><canvas id="canvas4"></canvas>light</div>
+      <div class="model5 js_fade delay"><canvas id="canvas5"></canvas>display</div>
+      <div class="model6 js_fade delay"><canvas id="canvas6"></canvas>ashtray</div>
+    </div>
+
+    <div class="ly_general access" id="access">
+      <h2>DESCRIPTION</h2>
+      <h3>Whats this page ?</h3>
+      <p class="jp">このページは、コーディング学習サイト「Codestep」様の上級編練習サイト<br>「FA EXHIBITION」の模写コーディングページです。</p>
+      <p>最近Blenderにお熱なので、CGCGしたページを作りたかった。。</p>
+      <a href="https://www.pixiv.net/artworks/92584054">作品を見る</a>
+    </div>
+
+    <div class="ly_general contact" id="contact">
+      <h2>OTHER</h2><br>
+      <a href="https://kamuyasiro.github.io/web-portal/">View more</a>
+    </div>
+
+    <div class="bg">
+    </div>
+
+  </section>
+
+  <footer>
+    <p>3DCG WORLD<br>
+      〒000-0000 あああああああああああゴリラああああああああ<br>
+      Tel: 01-1111-1111<br>
+      E-mail: info@xxxxxxx.jp</p>
+    <div class="left">
+      <a href="https://twitter.com/kamu_yasiro">Twitter</a>
+      <a class="popup">Facebook</a>
+      <a class="popup">instagram</a>
+    </div>
+    <div class="right">
+      <a href="">privacy policy</a>
+      <span>@kamu_Yasiro</span>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(function(){
+
+  $(window).scroll(function (){
+
+      //navフェードイン
+		$('.main').each(function(){
+			var elemPos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if (scroll > elemPos - windowHeight + 400){
+				$('nav').fadeIn();
+			}else{
+				$('nav').fadeOut();
+      }
+    });
+
+    //スクロール量が～以上～以内の時に発火
+    $('.access').each(function(){
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+      let access_position = $('#access').offset().top - windowHeight +300;
+      let contact_position = $('#contact').offset().top - windowHeight;
+			if (scroll > access_position){
+        if(scroll < contact_position){
+				$('.bg').fadeIn();
+			}else{
+				$('.bg').fadeOut();
+      }
+        }else{
+				$('.bg').fadeOut();
+        }
+		});
+
+
+    if(window.innerWidth > 750){
+    //スクロール量に応じて拡大
+      $('.img-wrapper img').css({
+        'width': 100/3 + $(window).scrollTop()/10  + '%'
+      });
+    }else{
+      $('.img-wrapper img').css({
+        'width': 100 - $(window).scrollTop()/10  + '%'
+      });
+    }
+
+    //スクロールアイコン
+    $('.scrollicon').each(function(){
+        var elemPos = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll > elemPos - windowHeight + 200){
+          $(this).css({"opacity":"0"});
+        }
+    });
+
+    //フェードイン
+    $('.js_fade').each(function(){
+			var elemPos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if (scroll > elemPos - windowHeight + 0){
+				$(this).addClass('active');
+			}
+    });
+
+	});
+
+  //humbergerメニュー
+  $('.humberger').click(function(){
+    $(this).toggleClass('active');
+    $('.nav-active').toggleClass('active');
+  });
+
+  //href属性が#から始まるaをクリックしたとき（ページ内リンクの場合）
+  $('a[href^="#"]').click(function(){
+    // リンクを取得
+    let href= $(this).attr("href");
+    // ジャンプ先のid名をセット(よくわからん)
+    let target = $(href == "#" || href == "" ? 'html' : href);
+    // トップからジャンプ先の要素までの距離を取得
+    let position = target.offset().top;
+    // animateでスムーススクロールを行う
+    $("html, body").animate({scrollTop:position}, 600, "swing");
+    $('.humberger').toggleClass('active');
+    $('.nav-active').toggleClass('active');
+  });
+
+  $('.popup').click(function(){
+    alert('やってません');
+  });
+  
+    });
+  </script>
+</body>
+</html>
