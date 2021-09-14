@@ -354,7 +354,7 @@ footer .right{
   margin-top:25px;
 }
   .bg{
-	background-attachment: none;  
+	background-attachment: scroll;  
 	}
 
 }
