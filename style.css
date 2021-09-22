@@ -203,23 +203,23 @@ canvas:active{
   cursor:grabbing;
 }
 .model1{
-  height:500px;
+  height:350px;
   margin-top:50px;
 }
 .model2{
   height:250px;
 }
 .model3{
-  height:350px;
+  height:500px;
 }
 .model4{
-  height:500px;
+  height:200px;
 }
 .model5{
   height:400px;
 }
 .model6{
-  height:200px;
+  height:500px;
 }
 .gallery div{
   width:48%;
