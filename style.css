@@ -232,9 +232,14 @@ canvas:active{
 
 .access{
   margin:500px auto;
-  filter: drop-shadow(2px 2px 0px black);
+  filter: drop-shadow(1px 1px 4px black);
+  font-weight:bold;
 }
-.access a{
+.access a {
+  color:white;
+  text-decoration: underline;
+}
+.link{
   display:inline-block;
   color:white;
   font-size:20px;
@@ -242,7 +247,7 @@ canvas:active{
   border:1px solid white;
   transition-duration: 0.5s;
 }
-.access a:hover{
+.link:hover{
   background-color:black;
 }
 
@@ -299,14 +304,13 @@ footer p{
   line-height:1.5;
   margin-bottom:25px;
 }
-footer a{
+footer span{
   color:white;
-  cursor:pointer;
 }
-footer .left a{
+footer .left span{
   margin-right:10px;
 }
-footer .right span{
+footer .right span:nth-of-type(2){
   margin-left:10px;
 }
 

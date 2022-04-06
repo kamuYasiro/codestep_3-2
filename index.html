@@ -57,7 +57,7 @@
       <h3>in Blender</h3>
       <p class="jp">Blenderで作ったいくつかのCGモデルを展示しています。<br>
       出力には、CGモデルをWeb上に表示するJavaScriptのフレームワークを使用しました。<br>
-	      <span>※左ドラッグ＆ドロップで回転、右ドラッグ＆ドロップでパンが可能です。</span></p>
+	      <span>※モデルにカーソルを合わせ、左D&Dで回転、右D&Dでパンが可能です。</span></p>
       
     </div>
 
@@ -76,7 +76,7 @@
       <h3>Whats this page ?</h3>
       <p class="jp">このページは、コーディング学習サイト「Codestep」様の上級編練習サイト<br><a href="https://code-step.com/demo/html/gallery/">「FA EXHIBITION」</a>の模写コーディングページです。</p>
       <p>Blenderで作った作品のアセットを並べて、絵画展のようなページを作ってみたかった。。</p>
-      <a href="https://www.pixiv.net/artworks/92584054">作品を見る</a>
+      <a class="link" href="https://www.pixiv.net/artworks/92584054">作品を見る</a>
     </div>
 
     <div class="ly_general contact" id="contact">
@@ -95,12 +95,12 @@
       Tel: 01-1111-1111<br>
       E-mail: info@xxxxxxx.jp</p>
     <div class="left">
-      <a href="https://twitter.com/kamu_yasiro">Twitter</a>
-      <a class="popup">Facebook</a>
-      <a class="popup">instagram</a>
+      <span>Twitter</span>
+      <span class="popup">Facebook</span>
+      <span class="popup">instagram</span>
     </div>
     <div class="right">
-      <a href="">privacy policy</a>
+      <span>privacy policy</span>
       <span>@kamu_Yasiro</span>
     </div>
   </footer>
@@ -194,9 +194,9 @@
     $('.nav-active').toggleClass('active');
   });
 
-  $('.popup').click(function(){
-    alert('やってません');
-  });
+  // $('.popup').click(function(){
+  //   alert('やってません');
+  // });
   
     });
   </script>
