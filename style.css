@@ -232,7 +232,7 @@ canvas:active{
 
 .access{
   margin:500px auto;
-  filter: drop-shadow(1px 1px 4px black);
+  filter: drop-shadow(1px 1px 1px black);
   font-weight:bold;
 }
 .access a {
@@ -291,7 +291,6 @@ canvas:active{
   left:0;
   z-index:-1;
   display:none;
-  opacity:0.8;
 }
 
 footer{
